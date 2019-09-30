@@ -1,0 +1,276 @@
+
+
+----------==========----------==========----------==========----------
+
+
+"Eat Your Own Catfood."
+
+
+----------==========----------==========----------==========----------
+
+
+Change Log
+
+
+2019/09/30
+
+
+BUGFIX
+
+
+	win32/win/dwm.c
+		n_win_dwm_windowcolor() : Win8 mode
+			OLD : alpha is used
+			NEW : alpha will be visible
+	win32/win_scrollbar.c
+		n_win_scrollbar_on_drag() : when a thumb is clicked
+			OLD : move one line in some cases
+			NEW : fixed
+		N_WIN_SCROLLBAR_STYLE_STRIPE_ROUND : disabled state
+			OLD : margin will appear
+			NEW : fixed
+			[!] : n_bmp_flush_mixer() causes
+		N_WIN_SCROLLBAR_STYLE_STRIPE_ROUND : arrow buttons
+			OLD : initial color will be inaccurate
+			NEW : fixed
+
+	CatPad
+		TxtBox : when system theme is changed
+			OLD : scroll position is reset to zero
+			NEW : fixed
+			[x] : old code causes
+	Marie
+		popup : when focus is lost
+			OLD : title bar still active state
+			NEW : fixed
+	Nonnon Freecell
+		when screen resolution is changed
+			OLD : broken
+			NEW : fixed
+		usability : click and double-click
+			OLD : another glitch sometimes
+			NEW : fixed
+			[x] : BUGFIX @ 2019/09/02
+			[!] : WM_MOUSEMOVE causes
+	Nonnon Spider
+		when screen resolution is changed
+			OLD : broken
+			NEW : fixed
+	OrangeCat
+		scroll pager : when style is changed
+			OLD : shaft is not redrawn
+			NEW : fixed
+			[x] : win_scrollbar.c causes
+
+
+NEW_FEATURE
+
+
+	win32/win_scrollbar.c
+		n_win_scrollbar_refresh_cache()
+			NEW : free cached bitmaps
+		n_win_scrollbar_refresh_redraw_area()
+			NEW : set redraw area all
+		Version 7.0
+			NEW : scroll_pixel()/unit() will not accept when delta is zero
+		N_WIN_SCROLLBAR_OPTION_CLAMP_BIG_THUMB
+			NEW : clamp when a thumb size is large
+
+	win32/win_titlemenu.c
+		released
+			NEW : system menu replacer
+
+	All
+		System Menu
+			OLD :     used
+			NEW : not used
+			[?] : title bar menu click is hooked
+			[!] : for usability
+
+
+----------==========----------==========----------==========----------
+
+
+Change Log
+
+
+2019/09/20
+
+
+BUGFIX
+
+
+	neutral/posix.c
+		Win2000 : n_posix_stat_size() : when string is empty
+			OLD : crash
+			NEW : fixed
+
+	win32/gdi/text.c
+		PMR : render position
+			OLD : inaccurate in some cases
+			NEW : fixed
+	win32/gdi.c
+		black as transparent color : on/off
+			OLD : user defined
+			NEW : always on
+			[!] : currently always needed
+	win32/win_radiobutton.c
+		High-DPI : 150% to 199% : center circle
+			OLD : too large
+			NEW : fixed
+		fade
+			OLD : not smooth
+			NEW : fixed
+			[!] : transparent color and alpha zero cause
+	win32/win_txtbox.c
+		ONELINE : focus is changed when fade is not finished
+			OLD : draw error
+			NEW : fixed
+		Menus
+			OLD : confusion
+			NEW : fixed
+			[!] : usage is changed
+		button ownerdraw support : auto-initializer
+			OLD:  misbehave
+			NEW : fixed
+			[!] : usage is changed
+
+	CatPad
+		Context Menus
+			OLD : undo happens when you click "Caret" in some cases
+			NEW : fixed
+	nmidi
+		System Menu
+			OLD : misbehave
+			NEW : fixed
+			[!] : TxtBox causes
+			[x] : original combobox is implemented
+	Nonnon Freecell
+		Cards : Number 2 of Diamonds and Clubs
+			OLD : edge is not beautiful
+			NEW : fixed
+			[!] : only when multithread is ON
+			[!] : old code causes
+	Nonnon Paint
+		Grabber : space key : when the selected are is out of bound
+			OLD : garbage is written
+			NEW : fixed
+	Nonnon Spider
+		Cards : Number 2 of Diamonds and Clubs
+			OLD : edge is not beautiful
+			NEW : fixed
+			[!] : only when multithread is ON
+			[!] : old code causes
+
+
+NEW_FEATURE
+
+
+	neutral/bmp/filter.c
+		n_bmp_clipcopy()
+			NEW : blendcopy() with exclude area
+		n_bmp_rasterizer_clip()
+			NEW : image based clipping supported
+	neutral/bmp.c
+		n_bmp_transparent_onoff_default
+			NEW : one-stop changer
+
+	win32/gdi.c
+		.icon_clip, .icon_clip_x, .icon_clip_y
+			NEW : set non-drawn area
+	win32/win_radiobutton.c
+		draw
+			NEW : fake Visual Style available
+	win32/win_smallbutton.c
+		n_win_smallbutton_is_clicked_up()
+			NEW : when clicked and released
+			[!] : usage is changed
+
+	Nonnon Freecell
+		UI
+			NEW : drop shadow available
+	Nonnon Paint
+		Grabber
+			NEW : underlay available
+			[!] : toggle with tab key
+			[!] : when per-pixel alpha is on
+			[!] : and main canvas has transparent background
+	Nonnon Spider
+		UI
+			NEW : drop shadow available
+
+
+----------==========----------==========----------==========----------
+
+
+Change Log
+
+
+2019/09/10
+
+
+BUGFIX
+
+
+	win32/win_checkbox.c
+		prevent press'n'run
+			OLD : misbehave
+			NEW : fixed
+	win32/win_radiobutton.c
+		prevent press'n'run
+			OLD : misbehave
+			NEW : fixed
+		WinXP/Vista/7 : Visual Style
+			OLD : not supported
+			NEW : revived
+			[x] : BUGFIX @ 2019/09/02
+	win32/win_smallbutton.c
+		prevent press'n'run
+			OLD : mouse capture based
+			NEW : WM_MOUSELEAVE
+			[!] : WM_MOUSELEAVE will never come when captured
+
+	Nonnon Paint
+		Size
+			OLD : inaccurate
+			NEW : fixed
+			[x] : when new scrollbars has been implemented
+		Air : when Mix has 100
+			OLD : not working
+			NEW : fixed
+	OrangeCat
+		external DnD : hover when item has already focused
+			OLD : blinking
+			NEW : fixed
+		Breadcrumb Address Band : when pressed
+			OLD : blinks in some cases
+			NEW : fixed
+
+
+NEW_FEATURE
+
+
+	win32/win_txtbox.c
+		input
+			NEW : some protection is implemented
+			[!] : #1 : you cannot key input while mouse is input
+			[!] : #2 : menu is suppressed while main-clicking
+	win32/wintab.c
+		headers
+			OLD : you need to install
+			NEW : auto-include from nonnon/_sdk
+			[!] : easier to compile for VC++
+
+	Nonnon Paint
+		Pen : Edge
+			NEW : brand-new Edge available
+			[!] : not the same as previous version
+		shortcut files (.LNK)
+			NEW : auto-resolver available
+			[!] : you can edit via shortcut
+		Pen
+			NEW : re-tuned
+
+
+----------==========----------==========----------==========----------
+
