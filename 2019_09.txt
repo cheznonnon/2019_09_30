@@ -12,6 +12,38 @@
 Change Log
 
 
+2019/10/08 : Recall
+
+
+BUGFIX
+
+
+	win32/win_richdialog.c
+		64-bit version : High-DPI
+			OLD : window is broken
+			NEW : fixed
+			[x] : ??? @ 2019/07/20
+
+	Felis
+		64-bit version : High-DPI : Dialog
+			OLD : broken
+			NEW : fixed
+			[?] : win32/win_richdialog.c causes
+			[x] : ??? @ 2019/07/20
+	OrangeCat
+		64-bit version : High-DPI : Dialog
+			OLD : broken
+			NEW : fixed
+			[?] : win32/win_richdialog.c causes
+			[x] : ??? @ 2019/07/20
+
+
+----------==========----------==========----------==========----------
+
+
+Change Log
+
+
 2019/09/30
 
 
