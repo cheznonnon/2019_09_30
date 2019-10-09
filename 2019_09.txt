@@ -12,7 +12,30 @@
 Change Log
 
 
-2019/10/08 : Recall
+2019/10/09 : Recall #2
+
+
+BUGFIX
+
+
+	win32/win_richdialog.c
+		64-bit version : High-DPI
+			OLD : infinite loop
+			NEW : fixed
+
+	OrangeCat
+		Filer Dialog
+			OLD : infinite loop
+			NEW : fixed
+
+
+----------==========----------==========----------==========----------
+
+
+Change Log
+
+
+2019/10/08 : Recall #1
 
 
 BUGFIX
